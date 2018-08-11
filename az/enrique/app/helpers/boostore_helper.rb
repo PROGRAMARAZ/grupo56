@@ -1,0 +1,2 @@
+module BoostoreHelper
+end

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Enrique</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <% if user_signed_in? %>
+  
+  <ul>
+  
+    <li>
+      <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'nav-link' %>
+    </li>
+
+    <li>
+      <a href="<%= libros_mis_libros_path %>">Mis Libros</a>
+    </li>
+
+    <li>
+      <a href="<%= autores_path %>">Autores</a>
+    </li>
+  </ul>
+  
+  <% else %>
+  <a href="<%=new_user_session_path %>">Log in</a>
+  <% end %>
+    <%= yield %>
+    <div class="notice">
+    <%= notice %>
+</div>
+<div class="alert">
+    <%= alert %>
+</div>
+  </body>
+</html>

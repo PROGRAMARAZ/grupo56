@@ -1,0 +1,23 @@
+<h1>Author#index</h1>
+<p>Find me in app/views/author/index.html.erb</p>
+
+<ul>
+<% for author in @authors %>
+    <li>
+<%= author.name %>
+<ul>    
+<% for book in author.books %>
+<li>
+<%= book.name %>
+<form method="post" action="<%= libros_agregar_path %>" >
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+            <input type="hidden" name="book[id]" value="<%= book.id %>">
+        <button type="submit">Agregar</button>
+</form>
+</li>
+<% end %>
+</ul>
+</li>
+<% end %>
+</ul>
+
